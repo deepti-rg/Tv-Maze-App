@@ -1,0 +1,21 @@
+<div>
+  <mat-card class="show-card">
+      <mat-card-title>
+          {{current.name}}
+      </mat-card-title>
+      <mat-card-subtitle>
+          <p>Language: {{current.language}}</p>
+          <p> Runtime: {{current.runtime}}</p>
+          
+      </mat-card-subtitle>
+      <img class="show-image" mat-card-image [src] = 'current.image'>
+      <mat-card-footer>
+        <span>Rating:{{current.rating}}</span> 
+      </mat-card-footer>
+    
+        <!-- <div>
+          {{current.summary}}
+        </div> -->
+  </mat-card>
+  
+</div>
