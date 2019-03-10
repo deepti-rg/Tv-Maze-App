@@ -5,6 +5,7 @@ import { getRandomString } from "selenium-webdriver/safari";
 import { map } from "rxjs/operators";
 import { ICurrentShow } from "./icurrent-show";
 import { Observable } from "rxjs";
+import { ISingleShowDetails } from "./isingleShowDetails";
 
 interface ICurrentServiceShow {
   score: number;
@@ -19,10 +20,20 @@ interface ICurrentServiceShowDetails {
   language: string;
   name: string;
   rating: {
-    average: number;
+    average: string;
   };
   summary: string;
   runtime: number;
+  genres: object;
+  network: {
+    id: number;
+    name: string;
+    country: {
+      name: string;
+      code: string;
+      timezone: string;
+    };
+  };
 }
 
 @Injectable({
@@ -62,15 +73,21 @@ export class TvshowService {
       );
   }
 
-  transformToSingleShow(serviceShow: ICurrentServiceShowDetails): ICurrentShow {
+  transformToSingleShow(
+    serviceShow: ICurrentServiceShowDetails
+  ): ISingleShowDetails {
     return {
       name: serviceShow.name,
       image: serviceShow.image
         ? serviceShow.image.medium
         : "assets/no-image.png ",
       runtime: serviceShow.runtime,
-      rating: serviceShow.rating.average,
+      rating: serviceShow.rating.average
+        ? serviceShow.rating.average
+        : "Not Rated",
       language: serviceShow.language,
+      network: serviceShow.network,
+      genres: serviceShow.genres,
       summary: serviceShow.summary
     };
   }
@@ -82,7 +99,9 @@ export class TvshowService {
         ? serviceShow.show.image.medium
         : "assets/no-image.png ",
       runtime: serviceShow.show.runtime,
-      rating: serviceShow.show.rating.average,
+      rating: serviceShow.show.rating.average
+        ? serviceShow.show.rating.average
+        : "Not Rated",
       language: serviceShow.show.language,
       summary: serviceShow.show.summary
     };

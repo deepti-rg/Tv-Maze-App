@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ICurrentShow } from '../icurrent-show';
 import { TvshowService } from '../tvshow.service';
+import { ISingleShowDetails } from '../isingleShowDetails';
 
 @Component({
   selector: 'app-show-details',
@@ -10,7 +11,7 @@ import { TvshowService } from '../tvshow.service';
 })
 export class ShowDetailsComponent implements OnInit {
   showName: string;
-  show: ICurrentShow;
+  show: ISingleShowDetails;
   
 
   constructor(private route: ActivatedRoute, private tvShowService: TvshowService ) { }
@@ -21,7 +22,7 @@ export class ShowDetailsComponent implements OnInit {
       this.tvShowService.getSingleShowByName(params['showName'])
       
       .subscribe(
-        (data: ICurrentShow) => (this.show = data))
+        (data: ISingleShowDetails) => (this.show = data))
     })
   }
 
