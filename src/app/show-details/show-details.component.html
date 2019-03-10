@@ -11,12 +11,14 @@
       </div>
       <img class="show-image" [src] = 'show.image'>
       </div> -->
+      <button class="back-button btn-primary" (click)="navigateToHomePage()">< Back</button>
   <div
     fxLayout="row"
     fxLayout.lt-sm="column"
     fxLayoutGap="15px"
     fxLayoutAlign="center center"
   >
+    
     <app-current-show [current]="show"></app-current-show>
     <mat-card class="show-info">
       <p><strong>Language:</strong> {{ show.language }}</p>

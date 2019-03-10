@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ICurrentShow } from '../icurrent-show';
 import { TvshowService } from '../tvshow.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search-results',
@@ -11,9 +12,11 @@ import { TvshowService } from '../tvshow.service';
 export class SearchResultsComponent implements OnInit {
   shows: ICurrentShow[];
   breakpoint: number;
+ 
 
   constructor(private route: ActivatedRoute,
-     private tvShowService: TvshowService) { }
+     private tvShowService: TvshowService,
+     private location: Location) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -29,6 +32,10 @@ export class SearchResultsComponent implements OnInit {
   
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 600) ? 1 : 5;
+  }
+
+  navigateToHomePage() {
+    this.location.back();
   }
 
 }

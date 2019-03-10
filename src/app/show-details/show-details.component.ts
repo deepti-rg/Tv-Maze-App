@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ICurrentShow } from '../icurrent-show';
 import { TvshowService } from '../tvshow.service';
 import { ISingleShowDetails } from '../isingleShowDetails';
+import { Route } from '@angular/compiler/src/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-show-details',
@@ -14,7 +16,9 @@ export class ShowDetailsComponent implements OnInit {
   show: ISingleShowDetails;
   
 
-  constructor(private route: ActivatedRoute, private tvShowService: TvshowService ) { }
+  constructor(private route: ActivatedRoute,
+     private tvShowService: TvshowService,
+     private location: Location ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -24,6 +28,10 @@ export class ShowDetailsComponent implements OnInit {
       .subscribe(
         (data: ISingleShowDetails) => (this.show = data))
     })
+  }
+
+  navigateToHomePage() {
+    this.location.back();
   }
 
 }

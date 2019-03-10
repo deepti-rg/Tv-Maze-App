@@ -12,6 +12,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatGridListModule,
     FlexLayoutModule,
-    MatTooltipModule 
+    MatTooltipModule,
+    NgbModule 
   ],
 
   exports: [
