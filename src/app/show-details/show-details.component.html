@@ -1,4 +1,16 @@
-<div>
-  <h1>Hello World!</h1>
+<div  *ngIf="show else loading">
+  <!-- <div>
+      <div>
+          {{show.name}}
+      </div>
+      <div>
+          <p>Language: {{show.language}}</p>
+          <p> Runtime: {{show.runtime}}</p>
+          <p>Rating:{{show.rating}}</p> 
+          <p>Summary:{{show.summary}}</p>
+      </div>
+      <img class="show-image" [src] = 'show.image'>
+      </div> -->
+      <app-current-show [current]="show"></app-current-show>
+      <span>Summary:{{show.summary}}</span>
 </div>
-

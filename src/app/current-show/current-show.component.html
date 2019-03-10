@@ -1,21 +1,14 @@
-<div>
-  <mat-card class="show-card">
-      <mat-card-title>
-          {{current.name}}
-      </mat-card-title>
-      <mat-card-subtitle>
-          <p>Language: {{current.language}}</p>
-          <p> Runtime: {{current.runtime}}</p>
-          
-      </mat-card-subtitle>
-      <img class="show-image" mat-card-image [src] = 'current.image'>
-      <mat-card-footer>
-        <span>Rating:{{current.rating}}</span> 
-      </mat-card-footer>
-    
-        <!-- <div>
-          {{current.summary}}
-        </div> -->
-  </mat-card>
-  
+<div class="show-card" (click)="navigateToShowDetails(current.name)">
+    <mat-card>
+        <img class="show-image" mat-card-image [src]="current.image">
+        <mat-card-title matTooltip={{current.name}}>
+            <span class="long-text show-name">{{current.name}}</span>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <span class="long-text">Language: {{current.language}}</span>
+            <span class="long-text">Runtime: {{current.runtime}}</span>
+            <span class="long-text">Rating:{{current.rating}}</span>
+        </mat-card-subtitle>
+    </mat-card>
+
 </div>

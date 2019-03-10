@@ -1,7 +1,0 @@
-<app-show-search (searchEvent)= "showSearch($event)" ></app-show-search>
-<mat-grid-list [cols]="breakpoint" rowHeight="1:1.75" (window:resize)="onResize($event)">
-   <mat-grid-tile *ngFor="let show of shows">
-         <app-current-show [current]="show">
-          </app-current-show>
-   </mat-grid-tile>
-</mat-grid-list>

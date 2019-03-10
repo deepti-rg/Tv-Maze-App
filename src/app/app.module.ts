@@ -4,22 +4,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CurrentShowComponent } from './current-show/current-show.component';
-import { ShowSearchComponent } from './show-search/show-search.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule, MatGridListModule } from '@angular/material';
 import { ShowDetailsComponent } from './show-details/show-details.component';
-import { SearchPageComponent } from './search-page/search-page.component';
-
-
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrentShowComponent,
-    ShowSearchComponent,
     ShowDetailsComponent,
-    SearchPageComponent,
+    SearchResultsComponent,
+    SearchBarComponent,
     
   ],
   imports: [
@@ -35,7 +35,9 @@ import { SearchPageComponent } from './search-page/search-page.component';
     MatCardModule, 
     MatFormFieldModule, 
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    FlexLayoutModule,
+    MatTooltipModule 
   ],
 
   exports: [

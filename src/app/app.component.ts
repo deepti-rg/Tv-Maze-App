@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TvshowService } from './tvshow.service';
 import { ICurrentShow } from './icurrent-show';
+import { Router } from '@angular/router';
 // import { icurrentshow } from './icurrent-show';
 
 @Component({
@@ -10,21 +11,15 @@ import { ICurrentShow } from './icurrent-show';
 })
 export class AppComponent {
   title = 'TV MAZE';
-  breakpoint = 0;
-  shows: ICurrentShow[];
 
-  constructor (private tvShowService: TvshowService) {
+  constructor (private router: Router ) {
   }
+
   showSearch(searchValue) {
-    this.tvShowService.getShowsByName(searchValue)
-    .subscribe(
-      (data: ICurrentShow[]) => (this.shows = data))
+    this.router.navigate(['/search-results', searchValue])
   }
-  ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 600) ? 1 : 5;
-}
 
-onResize(event) {
-  this.breakpoint = (event.target.innerWidth <= 600) ? 1 : 5;
-}
+  ngOnInit() {
+  }
+
 }

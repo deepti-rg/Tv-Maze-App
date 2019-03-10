@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ICurrentShow} from '../icurrent-show';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-current-show',
   templateUrl: './current-show.component.html',
@@ -7,18 +8,16 @@ import {ICurrentShow} from '../icurrent-show';
 })
 export class CurrentShowComponent implements OnInit {
   @Input() current: ICurrentShow
-  constructor() {
-    // this.current = {
-    // name: 'Girls',
-    // image: 'http://static.tvmaze.com/uploads/images/medium_portrait/31/78286.jpg',
-    // runtime: 30,
-    // rating: 7.9,
-    // language: 'English',
-    // summary: 'This Emmy winning series is a comic look at the assorted humiliations and rare triumphs of a group of girls in their 20s.'
-    // };
-   }
+
+  constructor(private router: Router) {
+  
+  }
 
   ngOnInit() {
+  }
+
+  navigateToShowDetails(showName: string) {
+    this.router.navigate(['/show-details', showName])
   }
 
 }

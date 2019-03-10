@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ShowDetailsComponent } from './show-details/show-details.component';
-import { ShowSearchComponent } from './show-search/show-search.component';
-import { SearchPageComponent } from './search-page/search-page.component';
-
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 const routes: Routes = [
-  { path: 'show-details', component: ShowDetailsComponent }
+  { path: 'show-details/:showName', component: ShowDetailsComponent },
+  { path: 'search-results/:SearchString', component: SearchResultsComponent}
 ];
 
 @NgModule({

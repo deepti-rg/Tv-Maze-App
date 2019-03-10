@@ -3,13 +3,13 @@ import { FormControl, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-show-search',
-  templateUrl: './show-search.component.html',
-  styleUrls: ['./show-search.component.css']
+  selector: 'app-search-bar',
+  templateUrl: './search-bar.component.html',
+  styleUrls: ['./search-bar.component.css']
 })
-export class ShowSearchComponent implements OnInit {
+export class SearchBarComponent implements OnInit {
   search = new FormControl('', [Validators.minLength(2)]);
-  @Output() searchEvent = new EventEmitter<string>();
+  @Output() onSearchEvent = new EventEmitter<string>();
 
   constructor() { }
   
@@ -18,7 +18,7 @@ export class ShowSearchComponent implements OnInit {
     .pipe(debounceTime(1000))
     .subscribe((searchvalue : string) => {
       console.log(searchvalue);
-      this.searchEvent.emit(searchvalue);
+      this.onSearchEvent.emit(searchvalue);
     })
   }
 
