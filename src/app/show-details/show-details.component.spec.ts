@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShowDetailsComponent } from './show-details.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ShowDetailsComponent', () => {
   let component: ShowDetailsComponent;
@@ -8,7 +12,9 @@ describe('ShowDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowDetailsComponent ]
+      imports: [ReactiveFormsModule, FormsModule, RouterTestingModule, HttpClientModule],
+      declarations: [ ShowDetailsComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

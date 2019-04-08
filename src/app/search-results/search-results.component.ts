@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ICurrentShow } from '../icurrent-show';
 import { TvshowService } from '../tvshow.service';
 import { Location } from '@angular/common';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
