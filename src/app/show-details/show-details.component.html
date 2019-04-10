@@ -23,7 +23,7 @@
     <mat-card class="show-info">
       <p><strong>Language:</strong> {{ show.language }}</p>
       <p><strong>Runtime:</strong> {{ show.runtime }}min</p>
-      <p *ngIf="show.genres.length > 0"><strong>Genres:</strong> {{ show.genres }}</p>
+      <p *ngIf="show.genres"><strong>Genres:</strong> {{ show.genres }}</p>
       <p *ngIf="show.network"><strong>Network:</strong> {{ show.network.name }}</p>
       <p *ngIf="show.network"><strong>Country:</strong> {{ show.network.country.name }}</p>
       <span><strong>Summary:</strong> </span>

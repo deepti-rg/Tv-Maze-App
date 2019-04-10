@@ -3,16 +3,24 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ShowDetailsComponent } from './show-details/show-details.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        FormsModule
+        
       ],
       declarations: [
-        AppComponent
+        AppComponent, SearchBarComponent, ShowDetailsComponent
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();

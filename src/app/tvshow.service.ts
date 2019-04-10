@@ -35,11 +35,14 @@ interface ICurrentServiceShowDetails {
     };
   };
 }
-
+export interface ITvshowService {
+  getShowsByName(showName: string): Observable<ICurrentShow[]>
+  getSingleShowByName(showName: string): Observable<ICurrentShow>
+}
 @Injectable({
   providedIn: "root"
 })
-export class TvshowService {
+export class TvshowService implements ITvshowService {
   constructor(private httpClient: HttpClient) {}
 
   getShowsByName(showName: string): Observable<ICurrentShow[]> {

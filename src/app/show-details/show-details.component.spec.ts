@@ -5,6 +5,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { TvshowService } from '../tvshow.service';
+import { TvshowServiceFake } from '../tvshow.service.fake';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ShowDetailsComponent', () => {
   let component: ShowDetailsComponent;
@@ -12,8 +15,10 @@ describe('ShowDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, FormsModule, RouterTestingModule, HttpClientModule],
+      imports: [ReactiveFormsModule, FormsModule, RouterTestingModule, HttpClientModule, HttpClientTestingModule],
       declarations: [ ShowDetailsComponent ],
+      providers:[{provide: TvshowService,
+      useClass: TvshowServiceFake}],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();

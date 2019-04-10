@@ -2,14 +2,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchBarComponent } from './search-bar.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports : [ReactiveFormsModule,
+      imports : [HttpClientModule,ReactiveFormsModule,
       FormsModule],
       declarations: [ SearchBarComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
